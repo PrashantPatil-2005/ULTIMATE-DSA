@@ -1,0 +1,20 @@
+# Ignore build files
+*.exe
+*.o
+*.out
+
+# VS Code config
+.vscode/
+
+# macOS and Windows junk
+.DS_Store
+Thumbs.db
+
+# Compiled and debug artifacts
+*.class
+*.obj
+*.dll
+*.pdb
+*.idb
+*.suo
+*.log
