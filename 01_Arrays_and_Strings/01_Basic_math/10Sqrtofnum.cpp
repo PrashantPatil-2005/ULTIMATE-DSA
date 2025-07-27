@@ -1,21 +1,33 @@
 #include <iostream>
+#include<cmath>
 using namespace std;
 
-int integerSqrt(int n) {
-    int low = 0, high = n, ans = 0;
-    while(low <= high) {
-        int mid = low + (high - low)/2;
-        if(1LL * mid * mid <= n) {
-            ans = mid;
-            low = mid + 1;
-        } else high = mid - 1;
+int squareRoot(int n) {
+    int i = 1;
+    while (i * i <= n) {
+        i++;
     }
-    return ans;
+    return i - 1;
+}
+
+double squareRootInbuilt(double num) {
+    if (num < 0) {
+        cout << "Square root of negative number is not real." << endl;
+        return -1;
+    }
+    return sqrt(num); // Built-in function
 }
 
 int main() {
-    int n;
-    cin >> n;
-    cout << integerSqrt(n) << endl;
+    int num;
+    cout << "Enter a number: ";
+    cin >> num;
+
+    if (num < 0)
+        cout << "Square root of negative number is not real.";
+    else
+        cout << "Square root is: " << squareRoot(num) << endl;
+
+        cout<<squareRootInbuilt(num)<<endl;
     return 0;
 }

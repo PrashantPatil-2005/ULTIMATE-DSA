@@ -2,19 +2,28 @@
 using namespace std;
 
 bool isPerfect(int n) {
-    int sum = 1;
-    for(int i = 2; i*i <= n; i++) {
-        if(n % i == 0) {
+    if (n <= 1) return false;
+
+    int sum = 1; // 1 is always a proper divisor
+    for (int i = 2; i * i <= n; i++) {
+        if (n % i == 0) {
             sum += i;
-            if(i != n/i) sum += n/i;
+            if (i != n / i)
+                sum += n / i;
         }
     }
-    return n != 1 && sum == n;
+    return sum == n;
 }
 
 int main() {
-    int n;
-    cin >> n;
-    cout << (isPerfect(n) ? "Perfect Number" : "Not Perfect") << endl;
+    int num;
+    cout << "Enter a number: ";
+    cin >> num;
+
+    if (isPerfect(num))
+        cout << num << " is a perfect number.";
+    else
+        cout << num << " is not a perfect number.";
+
     return 0;
 }

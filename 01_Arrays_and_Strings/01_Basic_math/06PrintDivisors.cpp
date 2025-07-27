@@ -8,7 +8,7 @@ vector<int> getDivisors(int n) {
     for(int i = 1; i*i <= n; i++) {
         if(n % i == 0) {
             res.push_back(i);
-            if(i != n/i)
+            if(n/i!=i)
                 res.push_back(n/i);
         }
     }
