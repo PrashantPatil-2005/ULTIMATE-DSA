@@ -8,9 +8,13 @@ using namespace std;
 int findDuplicate(int arr[], int n) {
     unordered_set<int> seen;
     for(int i = 0; i < n; i++) {
-        if(seen.count(arr[i])) return arr[i];
+        if(seen.find(arr[i])!=seen.end()) return arr[i];
         seen.insert(arr[i]);
     }
+    // for(int i = 0; i < n; i++) {
+    //     if(seen.count(arr[i])) return arr[i];
+    //     seen.insert(arr[i]);
+    // }
     return -1;
 }
 

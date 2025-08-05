@@ -15,6 +15,7 @@ void findMaxMin(int arr[], int n, int &mx, int &mn) {
 int main() {
     int arr[] = {4, 2, 7, 1, 9};
     int n = sizeof(arr)/sizeof(arr[0]), mx, mn;
+    cout<<(n/2)<<" ";
     findMaxMin(arr, n, mx, mn);
     cout << "Max: " << mx << ", Min: " << mn << endl;
 }

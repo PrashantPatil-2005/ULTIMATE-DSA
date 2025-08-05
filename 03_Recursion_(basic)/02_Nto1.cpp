@@ -1,6 +1,7 @@
 #include <iostream>
 using namespace std;
 
+//O(n)
 void printDescending(int n) {
     if (n == 0) return;
     cout << n << " ";
