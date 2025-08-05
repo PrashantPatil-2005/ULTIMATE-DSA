@@ -20,3 +20,12 @@ void countFrequencyOptimal(int arr[], int n) {
         cout << it.first << " -> " << it.second << "\n";
     }
 }
+
+int main() {
+    int arr[] =  { 2, 2, 1, 3, 2, 3,1,1,1,1};
+    int n = sizeof(arr) / sizeof(arr[0]);
+
+    countFrequencyOptimal(arr, n);
+
+    return 0;
+}

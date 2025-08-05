@@ -14,8 +14,8 @@ bool isSubset(int A[], int B[], int n, int m) {
 }
 
 int main() {
-    int A[] = {1, 2, 3, 4, 5};
-    int B[] = {1, 2, 3};
+    int A[] = {1, 2, 3, 3,4, 5};
+    int B[] = {1, 2, 3,3,4};
     int n = 5, m = 3;
     cout << (isSubset(A, B, n, m) ? "Yes" : "No");
 }
