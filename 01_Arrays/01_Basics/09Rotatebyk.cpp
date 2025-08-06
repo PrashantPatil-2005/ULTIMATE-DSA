@@ -9,7 +9,6 @@ void rotateByK(int arr[], int n, int k) {
     reverse(arr, arr + k);
     reverse(arr + k, arr + n);
 }
-
 int main() {
     int arr[] = {1, 2, 3, 4, 5};
     int k = 2, n = 5;
