@@ -21,12 +21,8 @@ public:
 
 class LinkedList {
 public:
-    Node* head;
-
-    LinkedList() {
-        head = nullptr;
-    }
-
+    Node* head = nullptr;
+    
     // Insert at beginning
     void insertAtBeginning(int value) {
         Node* newNode = new Node(value, head);
@@ -49,26 +45,19 @@ public:
 
     // Insert at specific position (1-based)
     void insertAtPosition(int value, int position) {
-        if (position < 1) {
-            cout << "Invalid position\n";
-            return;
-        }
-        if (position == 1) {
-            insertAtBeginning(value);
-            return;
-        }
-        Node* temp = head;
-        for (int i = 1; i < position - 1 && temp != nullptr; i++) {
-            temp = temp->next;
-        }
-        if (temp == nullptr) {
-            cout << "Position out of range\n";
-            return;
-        }
-        Node* newNode = new Node(value, temp->next);
-        temp->next = newNode;
+    Node* newNode = new Node(value);
+    if (position == 0) {
+        newNode->next = head;
+        head = newNode;
+        return;
     }
-
+    Node* temp = head;
+    for (int i = 1; i < position - 1; i++) {
+        temp = temp->next;
+    }
+    newNode->next = temp->next;
+    temp->next = newNode;
+}
     // Display linked list
     void display() {
         if (head == nullptr) {
