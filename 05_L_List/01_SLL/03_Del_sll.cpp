@@ -19,11 +19,9 @@ public:
 
 class LinkedList {
 public:
-    Node* head;
 
-    LinkedList() {
-        head = nullptr;
-    }
+    Node* head = nullptr;
+    
 
     // -------- Insert for testing --------
     void insertAtEnd(int value) {
@@ -69,48 +67,33 @@ public:
     }
 
     void deleteAtPosition(int position) {
-        if (position < 1 || head == nullptr) {
-            cout << "Invalid position or empty list\n";
-            return;
-        }
-        if (position == 1) {
-            deleteHead();
-            return;
-        }
+    if (position == 1) {
         Node* temp = head;
-        for (int i = 1; i < position - 1 && temp != nullptr; i++) {
-            temp = temp->next;
-        }
-        if (temp == nullptr || temp->next == nullptr) {
-            cout << "Position out of range\n";
-            return;
-        }
-        Node* nodeToDelete = temp->next;
-        temp->next = nodeToDelete->next;
-        delete nodeToDelete;
+        head = head->next;
+        delete temp;
+        return;
     }
+    Node* cur = head;
+    for (int i = 1; i < position - 1; i++) cur = cur->next;
+    Node* temp = cur->next;
+    cur->next = temp->next;
+    delete temp;
+}
 
-    void deleteByValue(int value) {
-        if (head == nullptr) {
-            cout << "List is empty\n";
-            return;
-        }
-        if (head->data == value) {
-            deleteHead();
-            return;
-        }
+void deleteByValue(int value) {
+    if (head->data == value) {
         Node* temp = head;
-        while (temp->next != nullptr && temp->next->data != value) {
-            temp = temp->next;
-        }
-        if (temp->next == nullptr) {
-            cout << "Value not found\n";
-            return;
-        }
-        Node* nodeToDelete = temp->next;
-        temp->next = nodeToDelete->next;
-        delete nodeToDelete;
+        head = head->next;
+        delete temp;
+        return;
     }
+    Node* cur = head;
+    while (cur->next->data != value) cur = cur->next;
+    Node* temp = cur->next;
+    cur->next = temp->next;
+    delete temp;
+}
+
 
     void deleteEntireList() {
         Node* temp = head;
