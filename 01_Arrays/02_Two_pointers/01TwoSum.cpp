@@ -1,35 +1,31 @@
 #include <bits/stdc++.h>
 using namespace std;
-//(One-pass Hash Table)
+
 class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
-        unordered_map<int, int> numMap;
-        int n = nums.size();
-
-        for (int i = 0; i < n; i++) {
-            int complement = target - nums[i];
-            if (numMap.count(complement)) {
-                return {numMap[complement], i};
-            }
-            numMap[nums[i]] = i;
+      unordered_map <int ,int > mp;
+      for(int i=0;i<nums.size();i++){
+        int temp=target-nums[i];
+        if(mp.count(temp)){
+            return {mp[temp],i};
         }
-
-        return {}; // No solution found
+        mp[nums[i]]=i;
+      }
+        return {-1,-1}; 
     }
 };
-// //(Brute Force)
+
 // class Solution {
 // public:
 //     vector<int> twoSum(vector<int>& nums, int target) {
-//         int n = nums.size();
-//         for (int i = 0; i < n - 1; i++) {
-//             for (int j = i + 1; j < n; j++) {
-//                 if (nums[i] + nums[j] == target) {
-//                     return {i, j};
-//                 }
-//             }
+//       int n=nums.size();
+//       for(int i=0;i<n;i++){
+//         int temp=target-nums[i];
+//         for(int j=i+1;j<n;j++){
+//         if(nums[j]==temp) return {i,j};
 //         }
-//         return {}; // No solution found
+//       }
+//         return {}; 
 //     }
-// };
+// };//O(n^2)
